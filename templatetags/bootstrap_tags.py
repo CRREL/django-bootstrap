@@ -11,16 +11,18 @@ important_regex = re.compile(r"(failure)|(revoked)", flags=re.I)
 
 
 @register.inclusion_tag("bootstrap_field.html")
-def bootstrap_field(field, class_=None, label_tag=True):
-    input_ = field.as_widget(attrs={'class': class_})
+def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-xs-6'):
+    input_ = field.as_widget(attrs={'class': class_ })
     id_for_label = field.id_for_label
-    label_tag = field.label_tag() if not field.is_hidden and label_tag else ''
+    label_tag = field.label_tag(attrs={'class': 'control-label col-xs-2'}) if not field.is_hidden and label_tag else ''
     help_text = field.help_text
-    wrapper_class = 'error' if field.errors else ''
+    wrapper_class = 'has-error' if field.errors else ''
+    input_col_xs_size = input_col_xs_size
     errors = ' '.join(field.errors)
     return {'label': label_tag, 'input': input_, 'help_text': help_text,
             'wrapper_class': wrapper_class, 'errors': errors,
             'hidden': field.is_hidden, 'id_for_label': id_for_label,
+            'input_col_xs_size': input_col_xs_size,
             'use_twipsy': settings.BOOTSTRAP_TWIPSY_FORMS}
 
 
@@ -51,10 +53,12 @@ def label(text, taskstate=None):
         text_for_class = text
     label_class = ''
     if success_regex.match(text_for_class):
-        label_class = "success"
+        label_class = "alert-success"
     elif important_regex.match(text_for_class):
-        label_class = "important"
-    text = '<span class="label %s">%s</span>' % (label_class, text)
+        label_class = "alert-danger"
+    else:
+        label_class = "alert-info"
+    text = '<span class="badge %s">%s</span>' % (label_class, text)
     return text
 
 

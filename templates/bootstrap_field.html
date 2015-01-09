@@ -1,30 +1,31 @@
 {% if hidden %}
     {{ input }}
     {% if errors %}
-      <span class="help-inline error">(hidden error) {{ errors }}</span>
+      <span class="help-inline text-danger">(hidden error) {{ errors }}</span>
     {% endif %}
 {% else %}
   {% if use_twipsy %}
     <script type="text/javascript" charset="utf-8">
-      $(document).ready(function() {
-        $('#{{ id_for_label }}').parents('.input-wrapper').popover({
-          content: function() { return '{{ help_text }}' },
-          offset: 24,
-          template: '<div class="arrow"></div><div class="inner"><div class="content"><p></p></div></div>',
+      $(function() {
+        $('#{{ id_for_label }}').tooltip({
+          title: '{{ help_text }}',
+          placement: 'right',
+          container: 'body',
+          template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
           html: true
         });
       });
     </script>
   {% endif %}
-  <div class="clearfix {{ wrapper_class }}">
+  <div class="form-group clearfix {{ wrapper_class }}">
     {{ label }}
-    <div class="input">
-      <span class="input-wrapper">
-        {{ input }}
-      </span>
-      <span class="help-inline">{{ errors }}</span>
+    <div class="{{ input_col_xs_size }}">
+      {{ input }}
+    </div>
+    <div class="col-xs-3 help-inline">
+      <p class="text-danger">{{ errors }}</p>
       {% if not use_twipsy %}
-      <span class="help-block">{{ help_text|safe }}</span>
+      <p class="text-muted">{{ help_text|safe }}</p>
       {% endif %}
     </div>
   </div>
