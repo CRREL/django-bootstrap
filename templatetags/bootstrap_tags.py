@@ -23,17 +23,7 @@ def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-x
             'wrapper_class': wrapper_class, 'errors': errors,
             'hidden': field.is_hidden, 'id_for_label': id_for_label,
             'input_col_xs_size': input_col_xs_size,
-            'use_twipsy': settings.BOOTSTRAP_TWIPSY_FORMS}
-
-
-@register.inclusion_tag("bootstrap_form.html")
-def bootstrap_form(form):
-    return {'form': form}
-
-
-@register.inclusion_tag("bootstrap_form_wizard.html")
-def bootstrap_form_wizard(form, submit_value):
-    return {'form': form, 'submit_value': submit_value}
+            'use_tooltips': settings.BOOTSTRAP_TOOLTIPS}
 
 
 @register.filter

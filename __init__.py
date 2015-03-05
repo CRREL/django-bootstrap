@@ -3,7 +3,7 @@ from django.conf import settings
 __all__ = []
 
 _DEFAULTS = {
-    'BOOTSTRAP_TWIPSY_FORMS': True
+    'BOOTSTRAP_TOOLTIPS': True
 }
 
 for key, value in _DEFAULTS.iteritems():
