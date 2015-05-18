@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 register = template.Library()
 
 success_regex = re.compile(r"success", flags=re.I)
+warning_regex = re.compile(r"(cancelled)|(finished)", flags=re.I)
 important_regex = re.compile(r"(failure)|(revoked)", flags=re.I)
 
 
@@ -44,6 +45,8 @@ def label(text, taskstate=None):
     label_class = ''
     if success_regex.match(text_for_class):
         label_class = "alert-success"
+    elif warning_regex.match(text_for_class):
+        label_class = "alert-warning"
     elif important_regex.match(text_for_class):
         label_class = "alert-danger"
     else:
