@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 register = template.Library()
 
 success_regex = re.compile(r"success", flags=re.I)
-warning_regex = re.compile(r"(cancelled)|(finished)", flags=re.I)
+warning_regex = re.compile(r"(canceled)|(finished)", flags=re.I)
 important_regex = re.compile(r"(failure)|(revoked)", flags=re.I)
 
 
