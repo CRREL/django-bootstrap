@@ -31,6 +31,7 @@ def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-x
 def form_verb(obj):
     return "Update" if obj else "Add"
 
+
 @register.filter
 def alt_form_verb(obj):
     return "Edit" if obj else "Create"
@@ -68,6 +69,12 @@ def label_link(taskstate, user, custom_state=None):
         state = 'UNKNOWN'
     text = label(state, taskstate)
     if taskstate and user.has_module_perms('taskstate'):
-        url = reverse('task_detail', args=(taskstate.task_id,))
-        text = '<a href="%s">%s</a>' % (url, text)
+        task_url = reverse('task_detail', args=(taskstate.task_id,))
+        text = '<a href="{0}">{1}</a>'.format(task_url, text)
+        if taskstate.is_cancelable():
+            cancel_url = reverse('task_revoke', args=(taskstate.task_id,))
+            cancel_text = ('<span title="Cancel Export" '
+                           'class="glyphicon glyphicon-remove-circle" '
+                           'aria-hidden="true"></span>')
+            text += '&nbsp;<a class="badge alert-danger" href="{0}">{1}</a>'.format(cancel_url, cancel_text)
     return text
