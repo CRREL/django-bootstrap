@@ -68,7 +68,7 @@ def label_link(taskstate, user, custom_state=None):
     else:
         state = 'UNKNOWN'
     text = label(state, taskstate)
-    if taskstate and user.has_module_perms('taskstate'):
+    if taskstate:
         task_url = reverse('task_detail', args=(taskstate.task_id,))
         text = '<a href="{0}">{1}</a>'.format(task_url, text)
         if taskstate.is_cancelable():
