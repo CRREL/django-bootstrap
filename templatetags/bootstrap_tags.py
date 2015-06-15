@@ -74,7 +74,7 @@ def label_link(taskstate, user, custom_state=None):
         if taskstate.is_cancelable():
             cancel_url = reverse('task_revoke', args=(taskstate.task_id,))
             cancel_text = ('<span title="Cancel Export" '
-                           'class="glyphicon glyphicon-remove-circle" '
+                           'class="glyphicon glyphicon-remove" '
                            'aria-hidden="true"></span>')
             text += '&nbsp;<a class="badge alert-danger" href="{0}">{1}</a>'.format(cancel_url, cancel_text)
     return text
