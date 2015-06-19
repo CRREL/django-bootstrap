@@ -76,5 +76,5 @@ def label_link(taskstate, user, custom_state=None):
             cancel_text = ('<span title="Cancel Export" '
                            'class="glyphicon glyphicon-remove" '
                            'aria-hidden="true"></span>')
-            text += '&nbsp;<a class="badge alert-danger" href="{0}">{1}</a>'.format(cancel_url, cancel_text)
+            text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" href="{0}">{1}</a>'.format(cancel_url, cancel_text)
     return text
