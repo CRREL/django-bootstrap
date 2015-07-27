@@ -1,7 +1,7 @@
 {% if hidden %}
     {{ input }}
     {% if errors %}
-      <span class="help-inline text-danger">(hidden error) {{ errors }}</span>
+      <span>(hidden error) {{ errors }}</span>
     {% endif %}
 {% else %}
   {% if use_tooltips %}
@@ -10,9 +10,7 @@
         $('#{{ id_for_label }}').tooltip({
           title: '{{ help_text }}',
           placement: 'right',
-          container: 'body',
-          template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-          html: true
+          container: 'body'
         });
       });
     </script>
@@ -25,7 +23,7 @@
     <div class="col-xs-3 help-inline">
       <p class="text-danger">{{ errors }}</p>
       {% if not use_tooltips %}
-      <p class="text-muted">{{ help_text|safe }}</p>
+        <p><small>{{ help_text|safe }}</small></p>
       {% endif %}
     </div>
   </div>
