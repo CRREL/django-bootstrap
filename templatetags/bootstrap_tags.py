@@ -78,3 +78,16 @@ def label_link(taskstate, user, custom_state=None):
                            'aria-hidden="true"></span>')
             text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" href="{0}">{1}</a>'.format(cancel_url, cancel_text)
     return text
+
+@register.simple_tag
+def help_icon(link="default", help_text="Click here to read our training documents."):
+    training_url = reverse('training', args=(link,))
+    help_icon = ('<a href="{0}" target="_blank" '
+        'data-toggle="tooltip" '
+        'data-container="body" '
+        'data-placement="right" '
+        'data-original-title="{1}">'
+        '<span class="glyphicon glyphicon-question-sign" '
+        'aria-hidden="true"></span>'
+        '</a>').format(training_url, help_text)
+    return help_icon
