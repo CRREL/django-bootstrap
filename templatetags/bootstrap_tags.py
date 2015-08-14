@@ -27,7 +27,6 @@ help_dict = {
     'slope':'Click here for more information on generating slopes.',
     'plasio':'Click here for more information on using plas.io.',
     'new_wg':'Click here for more information on creating a new workgroup.',
-    'add_to_new_wg':'Click here for more information on adding an AOI to a new workgroup.',
     'manage_wg':'Click here for more information on managing workgroups.',
 }
 
