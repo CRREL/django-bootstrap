@@ -10,6 +10,27 @@ success_regex = re.compile(r"success", flags=re.I)
 warning_regex = re.compile(r"(canceled)|(finished)", flags=re.I)
 important_regex = re.compile(r"(failure)|(revoked)", flags=re.I)
 
+help_dict = {
+    'default':'Click here to read our training documents.',
+    'acc_settings':'Click here for more information on account settings.',
+    'cov_maps':'Click here for more information on coverage maps.',
+    'map':'Click here for more information on using the map.',
+    'upload_aoi':'Click here for more information on uploading an AOI.',
+    'aoi_geocoords':'Click here for more information on creating an AOI from geo coordinates.',
+    'aoi_subscribe':'Click here for more information on AOI subscriptions.',
+    'export_pc':'Click here for more information on exporting pointcloud data.',
+    'export_dem':'Click here for more information on creating DEMs from pointclouds.',
+    'export_raster':'Click here for more information on exporting DEMs/imagery.',
+    'bare_earth':'Click here for more information on using bare earth filters.',
+    'hlz':'Click here for more information on generating HLZs.',
+    'los':'Click here for more information on generating 3D LOS.',
+    'slope':'Click here for more information on generating slopes.',
+    'plasio':'Click here for more information on using plas.io.',
+    'new_wg':'Click here for more information on creating a new workgroup.',
+    'add_to_new_wg':'Click here for more information on adding an AOI to a new workgroup.',
+    'manage_wg':'Click here for more information on managing workgroups.',
+}
+
 
 @register.inclusion_tag("bootstrap_field.html")
 def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-xs-6'):
@@ -80,14 +101,17 @@ def label_link(taskstate, user, custom_state=None):
     return text
 
 @register.simple_tag
-def help_icon(link="default", help_text="Click here to read our training documents."):
+def help_icon(link="default"):
     training_url = reverse('training', args=(link,))
+    help_text = help_dict[link]
     help_icon = ('<a href="{0}" target="_blank" '
         'data-toggle="tooltip" '
         'data-container="body" '
         'data-placement="right" '
         'data-original-title="{1}">'
-        '<span class="glyphicon glyphicon-question-sign" '
+        '<span class="glyphicon '
+        'glyphicon-question-sign '
+        'help-gly" '
         'aria-hidden="true"></span>'
         '</a>').format(training_url, help_text)
     return help_icon
