@@ -28,6 +28,8 @@ help_dict = {
     'plasio':'Click here for more information on using plas.io.',
     'new_wg':'Click here for more information on creating a new workgroup.',
     'manage_wg':'Click here for more information on managing workgroups.',
+    'add_aoi_wg_new': 'Click here for more information on adding an AOI to a new workgroup.',
+    'add_aoi_wg': 'Click here for more information on adding an AOI to an existing workgroup.'
 }
 
 
