@@ -115,4 +115,4 @@ def help_icon(link="default"):
         'help-gly" '
         'aria-hidden="true"></span>'
         '</a>').format(training_url, help_text)
-    return help_icon
+    return mark_safe(help_icon)
