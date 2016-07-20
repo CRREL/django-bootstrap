@@ -99,11 +99,11 @@ def label_link(taskstate, user, custom_state=None):
         task_url = reverse('task_detail', args=(taskstate.task_id,))
         text = '<a href="{0}">{1}</a>'.format(task_url, text)
         if taskstate.is_cancelable():
-            cancel_url = reverse('task_revoke', args=(taskstate.task_id,))
+            cancel_url = reverse('task_revoke_modal', args=(taskstate.task_id,))
             cancel_text = ('<span '
                            'class="glyphicon glyphicon-remove" '
                            'aria-hidden="true"></span>')
-            text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" href="{0}">{1}</a>'.format(cancel_url, cancel_text)
+            text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" data-form="{0}" href="#">{1}</a>'.format(cancel_url, cancel_text)
     return text
 
 @register.simple_tag
