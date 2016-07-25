@@ -2620,6 +2620,10 @@ input[type="search"] {
     line-height: 46px;
   }
 }
+.form-group.required .control-label:before {
+  content: "* ";
+  color: red;
+}
 .form-group {
   margin-bottom: 15px;
 }
