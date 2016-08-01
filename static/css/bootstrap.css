@@ -2620,9 +2620,9 @@ input[type="search"] {
     line-height: 46px;
   }
 }
-.form-group.required .control-label:before {
-  content: "* ";
-  color: red;
+.bold-label{
+  font-family: Verdana,sans-serif;
+  font-weight: bold !important;
 }
 .form-group {
   margin-bottom: 15px;
