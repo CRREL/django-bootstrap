@@ -27,6 +27,7 @@ help_dict = {
     'hlz':'Click here for more information on generating HLZs.',
     'los':'Click here for more information on generating 3D LOS.',
     'slope':'Click here for more information on generating slopes.',
+    'fete':'Click here for more information on generating FETE.',
     'plasio':'Click here for more information on using plas.io.',
     'new_wg':'Click here for more information on creating a new workgroup.',
     'manage_wg':'Click here for more information on managing workgroups.',
