@@ -4,17 +4,15 @@
       <span>(hidden error) {{ errors }}</span>
     {% endif %}
 {% else %}
-  {% if use_tooltips %}
-    <script type="text/javascript" charset="utf-8">
-      $(function() {
-        $('#{{ id_for_label }}').tooltip({
-          title: '{{ help_text }}',
-          placement: 'right',
-          container: 'body'
-        });
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $('#{{ id_for_label }}').tooltip({
+        title: '{{ help_text }}',
+        placement: 'right',
+        container: 'body'
       });
-    </script>
-  {% endif %}
+    });
+  </script>
   <div class="form-group clearfix {{ wrapper_class }}">
     {{ label }}
     <div class="{{ input_col_xs_size }}">
@@ -22,9 +20,6 @@
     </div>
     <div class="col-xs-3 help-inline">
       <p class="text-danger">{{ errors }}</p>
-      {% if not use_tooltips %}
-        <p><small>{{ help_text|safe }}</small></p>
-      {% endif %}
     </div>
   </div>
 {% endif %}
