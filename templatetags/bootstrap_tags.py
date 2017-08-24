@@ -103,7 +103,7 @@ def label_link(taskstate, user, custom_state=None):
             cancel_text = ('<span '
                            'class="glyphicon glyphicon-remove" '
                            'aria-hidden="true"></span>')
-            text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" data-form="{0}" href="#">{1}</a>'.format(cancel_url, cancel_text)
+            text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
     return text
 
 @register.simple_tag
