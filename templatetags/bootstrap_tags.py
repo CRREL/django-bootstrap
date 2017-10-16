@@ -104,7 +104,7 @@ def label_link(taskstate, user, custom_state=None):
                            'class="glyphicon glyphicon-remove" '
                            'aria-hidden="true"></span>')
             text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
-    return text
+    return mark_safe(text)
 
 @register.simple_tag
 def help_icon(link="default"):
