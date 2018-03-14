@@ -37,10 +37,10 @@ help_dict = {
 
 
 @register.inclusion_tag("bootstrap_field.html")
-def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-xs-6', _bold=False):
+def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-6', _bold=False):
     input_ = field.as_widget(attrs={'class': class_ })
     id_for_label = field.id_for_label
-    default_class = 'control-label col-xs-2'
+    default_class = 'col-form-label col-2'
     field_class = default_class + " bold-label" if _bold else default_class
     label_tag = field.label_tag(attrs={'class': field_class})
     help_text = field.help_text
@@ -103,7 +103,7 @@ def label_link(taskstate, user, custom_state=None):
             cancel_text = ('<span '
                            'class="glyphicon glyphicon-remove" '
                            'aria-hidden="true"></span>')
-            text += '&nbsp;<a class="btn btn-xs btn-default cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
+            text += '&nbsp;<a class="btn btn-sm btn-default cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
     return mark_safe(text)
 
 @register.simple_tag
