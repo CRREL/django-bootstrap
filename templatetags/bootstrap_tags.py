@@ -101,7 +101,7 @@ def label_link(taskstate, user, custom_state=None):
         if taskstate.is_cancelable():
             cancel_url = reverse('task_revoke_modal', args=(taskstate.task_id,))
             cancel_text = ('<span '
-                           'class="glyphicon glyphicon-remove" '
+                           'class="fa fa-times" '
                            'aria-hidden="true"></span>')
             text += '&nbsp;<a class="btn btn-sm btn-default cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
     return mark_safe(text)
@@ -115,8 +115,8 @@ def help_icon(link="default"):
         'data-container="body" '
         'data-placement="right" '
         'data-original-title="{1}">'
-        '<span class="glyphicon '
-        'glyphicon-question-sign '
+        '<span class="far '
+        'fa-question-circle '
         'help-gly" '
         'aria-hidden="true"></span>'
         '</a>').format(training_url, help_text)
