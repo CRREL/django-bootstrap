@@ -115,7 +115,7 @@ def help_icon(link="default"):
         'data-container="body" '
         'data-placement="right" '
         'data-original-title="{1}">'
-        '<span class="far '
+        '<span class="far fa-xs'
         'fa-question-circle '
         'help-gly" '
         'aria-hidden="true"></span>'
