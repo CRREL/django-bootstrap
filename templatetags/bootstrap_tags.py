@@ -71,13 +71,13 @@ def label(text, taskstate=None):
         text_for_class = text
     label_class = ''
     if success_regex.match(text_for_class):
-        label_class = "alert-success"
+        label_class = "badge-success"
     elif warning_regex.match(text_for_class):
-        label_class = "alert-warning"
+        label_class = "badge-warning"
     elif important_regex.match(text_for_class):
-        label_class = "alert-danger"
+        label_class = "badge-danger"
     else:
-        label_class = "alert-info"
+        label_class = "badge-info"
     text = '<span class="badge %s">%s</span>' % (label_class, text)
     return text
 
@@ -114,7 +114,7 @@ def help_icon(link="default"):
         'data-container="body" '
         'data-placement="right" '
         'data-original-title="{1}">'
-        '<span class="far fa-xs'
+        '<span class="far fa-xs '
         'fa-question-circle '
         'help-gly" '
         'aria-hidden="true"></span>'
