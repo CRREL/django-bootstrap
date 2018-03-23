@@ -100,9 +100,9 @@ def label_link(taskstate, user, custom_state=None):
         if taskstate.is_cancelable():
             cancel_url = reverse('task_revoke_modal', args=(taskstate.task_id,))
             cancel_text = ('<span '
-                           'class="fa fa-times" '
+                           'class="fa fa-times fa-lg text-danger" '
                            'aria-hidden="true"></span>')
-            text += '&nbsp;<a class="btn btn-sm btn-default cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
+            text += '<a class="ml-1 cancel-btn" onclick="cancelModal(\'{0}\');" href="#">{1}</a>'.format(cancel_url, cancel_text)
     return mark_safe(text)
 
 @register.simple_tag
