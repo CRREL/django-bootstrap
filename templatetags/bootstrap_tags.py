@@ -37,20 +37,18 @@ help_dict = {
 
 
 @register.inclusion_tag("bootstrap_field.html")
-def bootstrap_field(field, class_=None, label_tag=True, input_col_xs_size='col-6', row_class='', _bold=False):
+def bootstrap_field(field, class_=None, label_tag=True, input_col_size='col-6', row_class='', _bold=False):
     input_ = field.as_widget(attrs={'class': class_ })
     id_for_label = field.id_for_label
     default_class = 'col-form-label col-2'
     field_class = default_class + " bold-label" if _bold else default_class
     label_tag = field.label_tag(attrs={'class': field_class})
     help_text = field.help_text
-    wrapper_class = 'has-error' if field.errors else ''
     errors = ' '.join(field.errors)
     return {'label': label_tag, 'input': input_, 'help_text': help_text,
-            'wrapper_class': wrapper_class, 'errors': errors,
-            'hidden': field.is_hidden, 'id_for_label': id_for_label,
-            'input_col_xs_size': input_col_xs_size, 'row_class': row_class,
-            'use_tooltips': settings.BOOTSTRAP_TOOLTIPS}
+            'errors': errors, 'hidden': field.is_hidden,
+            'id_for_label': id_for_label, 'input_col_size': input_col_size,
+            'row_class': row_class, 'use_tooltips': settings.BOOTSTRAP_TOOLTIPS}
 
 
 @register.filter

@@ -13,13 +13,13 @@
       });
     });
   </script>
-  <div class="form-group row {{ wrapper_class }}{{ row_class }}">
+  <div class="form-group row {{ row_class }}">
     {{ label }}
-    <div class="{{ input_col_xs_size }}">
+    <div class="{{ input_col_size }}">
       {{ input }}
     </div>
-    <div class="col-3 help-inline">
-      <p class="text-danger">{{ errors }}</p>
+    <div class="invalid-feedback">
+     {{ errors }}
     </div>
   </div>
 {% endif %}
