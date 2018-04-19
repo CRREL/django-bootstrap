@@ -75,7 +75,7 @@ def label(text, taskstate=None):
     elif important_regex.match(text_for_class):
         label_class = "badge-danger"
     else:
-        label_class = "badge-info"
+        label_class = "badge-primary"
     text = '<span class="badge %s">%s</span>' % (label_class, text)
     return text
 
