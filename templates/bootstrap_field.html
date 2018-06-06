@@ -17,9 +17,11 @@
     {{ label }}
     <div class="{{ input_col_size }}">
       {{ input }}
-    </div>
-    <div class="invalid-feedback">
-     {{ errors }}
+      {% if errors %}
+          <div class="invalid-feedback">
+             {{ errors }}
+          </div>
+      {% endif %}
     </div>
   </div>
 {% endif %}

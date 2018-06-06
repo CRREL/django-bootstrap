@@ -38,6 +38,8 @@ help_dict = {
 
 @register.inclusion_tag("bootstrap_field.html")
 def bootstrap_field(field, class_=None, label_tag=True, input_col_size='col-6', row_class='', _bold=False):
+    if field.errors:
+        class_ += ' is-invalid'
     input_ = field.as_widget(attrs={'class': class_ })
     id_for_label = field.id_for_label
     default_class = 'col-form-label col-2'
