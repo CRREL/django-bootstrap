@@ -38,13 +38,16 @@ help_dict = {
 
 @register.inclusion_tag("bootstrap_field.html")
 def bootstrap_field(field, class_=None, label_tag=True, input_col_size='col-6', row_class='', _bold=False):
+    class_ = class_ if class_ else ""
     if field.errors:
         class_ += ' is-invalid'
     input_ = field.as_widget(attrs={'class': class_ })
     id_for_label = field.id_for_label
     default_class = 'col-form-label col-2'
-    field_class = default_class + " bold-label" if _bold else default_class
-    label_tag = field.label_tag(attrs={'class': field_class})
+    label_class = default_class + " bold-label" if _bold else default_class
+    if field.field.widget.input_type in ['checkbox', 'radio']:
+        label_class += " pt-0"
+    label_tag = field.label_tag(attrs={'class': label_class})
     help_text = field.help_text
     errors = ' '.join(field.errors)
     return {'label': label_tag, 'input': input_, 'help_text': help_text,
