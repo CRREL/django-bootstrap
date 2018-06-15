@@ -45,8 +45,11 @@ def bootstrap_field(field, class_=None, label_tag=True, input_col_size='col-6', 
     id_for_label = field.id_for_label
     default_class = 'col-form-label col-2'
     label_class = default_class + " bold-label" if _bold else default_class
-    if field.field.widget.input_type in ['checkbox', 'radio']:
-        label_class += " pt-0"
+    try:
+        if field.field.widget.input_type in ['checkbox', 'radio']:
+            label_class += " pt-0"
+    except:
+        pass
     label_tag = field.label_tag(attrs={'class': label_class})
     help_text = field.help_text
     errors = ' '.join(field.errors)
