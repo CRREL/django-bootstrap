@@ -42,7 +42,7 @@ def bootstrap_field(field, class_=None, label_tag=True, input_col_size='col-6', 
     if field.errors:
         class_ += ' is-invalid'
     input_ = field.as_widget(attrs={'class': class_ })
-    id_for_label = field.id_for_label
+    id_for_label = field.id_for_label if field.id_for_label else field.auto_id
     default_class = 'col-form-label col-2'
     label_class = default_class + " bold-label" if _bold else default_class
     try:
