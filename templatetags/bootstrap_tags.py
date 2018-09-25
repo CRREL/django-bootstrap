@@ -43,20 +43,18 @@ def bootstrap_field(field, class_=None, label_tag=True, input_col_size='col-6', 
         class_ += ' is-invalid'
     input_ = field.as_widget(attrs={'class': class_ })
     id_for_label = field.id_for_label if field.id_for_label else field.auto_id
-    default_class = 'col-form-label col-2'
-    label_class = default_class + " bold-label" if _bold else default_class
     try:
         if field.field.widget.input_type in ['checkbox', 'radio']:
             label_class += " pt-0"
     except:
         pass
-    label_tag = field.label_tag(attrs={'class': label_class})
+    label_tag = field.label_tag(attrs={'class': 'col-form-label col-2'})
     help_text = field.help_text
     errors = ' '.join(field.errors)
     return {'label': label_tag, 'input': input_, 'help_text': help_text,
             'errors': errors, 'hidden': field.is_hidden,
             'id_for_label': id_for_label, 'input_col_size': input_col_size,
-            'row_class': row_class, 'use_tooltips': settings.BOOTSTRAP_TOOLTIPS}
+            'row_class': row_class}
 
 
 @register.filter
