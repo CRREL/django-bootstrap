@@ -124,3 +124,15 @@ def help_icon(link="default"):
         'aria-hidden="true"></span>'
         '</a>').format(training_url, help_text)
     return mark_safe(help_icon)
+
+@register.simple_tag
+def download_pdf_icon():
+    download_pdf_icon = '''
+        <span aria-hidden="true"
+        title="Download pdf"
+        data-toggle="tooltip"
+        data-placement="right"
+        data-container="body">
+        <i class="fa fa-download dl-gly"></i>
+        </span>'''
+    return mark_safe(download_pdf_icon)
